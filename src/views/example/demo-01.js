@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'caihrc';
 
 import {
     Link
@@ -16,7 +17,7 @@ const Demo01 = function () {
 
     return (<div>
         <h2>Demo01</h2>
-        <a href="#">learn react</a>
+        <Button type="primary">Click me</Button>
         <div>
             <Link to="/">demo02</Link>
         </div>
