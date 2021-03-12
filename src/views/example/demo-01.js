@@ -1,17 +1,30 @@
 import React from 'react'
-import { Button } from 'caihrc';
+import {Button} from 'caihrc';
 import {useTranslation} from "react-i18next";
-
+import {connect} from 'react-redux'
 import {
     Link
 } from "react-router-dom";
 
-const Demo01 = function () {
+import {changeLanguage} from '../../actions/index'
+
+const mapStateToProps = state => {
+    return {
+        languageType: state.languageType,
+    }
+};
+
+
+const Demo01 = function ({languageType, dispatch}) {
     const {t} = useTranslation();
 
 //--- useState ----------------------
 
 //--- function ----------------------
+    function onLanguageChange(type) {
+        dispatch(changeLanguage(type))
+    }
+
 
 //--- useEffect ----------------------
 
@@ -22,11 +35,17 @@ const Demo01 = function () {
 
         <h1>{t('hello')}</h1>
 
-        <Button type="primary">Click me</Button>
+        <Button type="primary" onClick={() => {
+            onLanguageChange('en_GB')
+        }}>英语</Button>
+        <Button onClick={() => {
+            onLanguageChange('zh_CN')
+        }}>中文</Button>
+
         <div>
             <Link to="/">demo02</Link>
         </div>
     </div>)
 }
 
-export default Demo01
+export default connect(mapStateToProps)(Demo01)
