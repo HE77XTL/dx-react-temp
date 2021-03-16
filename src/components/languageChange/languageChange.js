@@ -11,10 +11,6 @@ const mapStateToProps = state => {
 
 const LanguageChange = function ({dispatch, languageType}) {
 
-    console.log('dispatch, languageType')
-    console.log(dispatch, languageType)
-
-
 //--- useState ----------------------
 
 //--- function ----------------------
