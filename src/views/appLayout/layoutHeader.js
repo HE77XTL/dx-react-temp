@@ -2,8 +2,12 @@ import React from 'react'
 import LanguageChange from '../../components/languageChange/languageChange'
 import css from './layoutHeader.module.less'
 import logo from '../../assets/image/headerLogo.png'
+import {
+    SearchOutlined
+} from '@ant-design/icons';
 
 import {Input} from 'caihrc'
+
 
 const LayoutHeader = function () {
 
@@ -28,8 +32,8 @@ const LayoutHeader = function () {
                 <div>创新服务</div>
                 <div>技术交易协作网络</div>
             </div>
-            <div>
-                <Input type="text"/>
+            <div className={css.searchInput}>
+                <Input type="text" size="small" suffix={<SearchOutlined/>} allowClear={false} placeholder="请输入关键字" />
             </div>
         </div>
     </div>)
