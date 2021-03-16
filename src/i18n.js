@@ -5,8 +5,9 @@ import store from "store";
 import zh_CN from './locales/zh_CN'
 import en_GB from './locales/en_GB'
 
-//const languageType = store.get('languageType') || 'zh_CN';
-const languageType = 'en_GB';
+const languageType = store.get('languageType') || 'zh_CN';
+//const languageType = 'en_GB';
+
 
 const resources = {
     en_GB: {

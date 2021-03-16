@@ -1,7 +1,9 @@
 import React from 'react'
+import {useTranslation} from "react-i18next";
+
 
 const Home = function () {
-
+    const {t} = useTranslation()
 //--- useState ----------------------
 
 //--- function ----------------------
@@ -12,6 +14,9 @@ const Home = function () {
 
     return (<div>
         Home
+        <div>
+            {t('hello')}
+        </div>
     </div>)
 }
 

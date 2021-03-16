@@ -1,4 +1,5 @@
 import React from 'react'
+import LanguageChange from '../../components/languageChange/languageChange'
 import css from './layoutHeader.module.less'
 import logo from '../../assets/image/headerLogo.png'
 
@@ -16,7 +17,7 @@ const LayoutHeader = function () {
 
     return (<div className={css.layoutHeader}>
         <div className={css.headerBar}>
-            <div>中文 | 英文</div>
+            <LanguageChange/>
             <div>登陆</div>
         </div>
         <div className={css.headerMenu}>

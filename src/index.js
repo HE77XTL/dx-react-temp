@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './i18n';
-import './index.css';
+import './assets/styles/index.css';
+import './assets/styles/common.css';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './router/router'
 
