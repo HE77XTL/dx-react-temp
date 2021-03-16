@@ -10,15 +10,10 @@ import {Provider} from 'react-redux'
 
 import ReduxThunk from 'redux-thunk'
 import {createLogger} from 'redux-logger';
-
 import AppRedux from './reducers/index'
 
 const logger = createLogger();
-
 const store = createStore(AppRedux, applyMiddleware(ReduxThunk, logger))
-
-console.log('store')
-console.log(store)
 
 ReactDOM.render(
     <React.StrictMode>

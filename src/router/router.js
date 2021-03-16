@@ -7,8 +7,7 @@ import {
 import ConfigProvider from 'caihrc/lib/config-provider';
 import {connect} from "react-redux";
 
-import Demo01 from '../views/example/demo-01'
-import Demo02 from '../views/example/demo-02'
+import AppLayout from '../views/appLayout/appLayout'
 
 const mapStateToProps = state => {
     return {
@@ -17,16 +16,11 @@ const mapStateToProps = state => {
 };
 
 const AppRouter = function ({languageType, dispatch}) {
-    console.log('languageType')
-    console.log(languageType)
-    console.log('dispatch')
-    console.log(dispatch)
     return (
         <ConfigProvider locale={languageType.antDesign}>
             <Router>
                 <Switch>
-                    <Route path="/demo01"><Demo01/></Route>
-                    <Route path="/"><Demo02/></Route>
+                    <Route path="/"><AppLayout/></Route>
                 </Switch>
             </Router>
         </ConfigProvider>
