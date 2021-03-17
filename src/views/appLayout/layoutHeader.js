@@ -5,20 +5,20 @@ import logo from '../../assets/image/headerLogo.png'
 import {
     SearchOutlined, CaretDownOutlined, CaretUpOutlined
 } from '@ant-design/icons';
+import {useHistory} from 'react-router-dom'
 
 import {Input} from 'caihrc'
-
-//<div className={css.menuTabsItem}>政策资讯</div>
-//                 <div className={css.menuTabsItem}>技术供需</div>
-//                 <div className={css.menuTabsItem}>创新服务</div>
-//                 <div className={css.menuTabsItem}>技术交易协作网络</div>
+import menuData from './menuData'
 
 
 const LayoutHeader = function () {
+    const history = useHistory();
+    const currentUrl = history.location.pathname;
     const menuOption = [
         {
-            key: 'policy',
+            key: 'policyNews',
             name: '政策资讯',
+            url: '/policyNews',
             children: []
         },
         {
@@ -52,29 +52,43 @@ const LayoutHeader = function () {
         {
             key: 'cooperateSystem',
             name: '技术交易协作网络',
+            url: '/cooperateSystem',
             children: []
         }
-    ]
-
+    ];
 
 //--- useState ----------------------
-    const [activeMenu, setActiveMenu] = useState('policy')
+    const [activeMenu, setActiveMenu] = useState(getCurrentUrlMatchMenu(currentUrl, menuData));
 
+//--- useEffect ----------------------
+
+//--- operate ----------------------
 
 //--- function ----------------------
     function onMenuClick(menu) {
-        console.log(menu)
-        setActiveMenu(menu.key)
+        setActiveMenu(menu.key);
+        if (menu.url) {
+            history.push(menu.url)
+        }
     }
 
     function isActiveMenuFmt(key) {
         return activeMenu === key ? css.active : ''
     }
 
+    // 当前菜单匹配路由激活
+    function getCurrentUrlMatchMenu(findStr, data) {
+        let result = '';
+        for (let key in data) {
+            const item = data[key];
+            if (item.includes(findStr)) {
+                result = key;
+                break
+            }
+        }
+        return result
+    }
 
-//--- useEffect ----------------------
-
-//--- operate ----------------------
 
     return (<div className={css.layoutHeader}>
         <div className={css.headerBar}>
@@ -85,9 +99,9 @@ const LayoutHeader = function () {
             <img src={logo} className={css.headerLogo} alt="logo"/>
             <div className={css.menuTabs}>
                 {menuOption.map(menuItem => {
-                    return <div className={css.menuTabsItemWrap}>
+                    return <div key={menuItem.key} className={css.menuTabsItemWrap}>
                         <div className={`${css.menuTabsItem} ${isActiveMenuFmt(menuItem.key)}`}>
-                            <div key={menuItem.key} onClick={() => {
+                            <div onClick={() => {
                                 onMenuClick(menuItem)
                             }} className={css.menuText}>
                                 {menuItem.name}
