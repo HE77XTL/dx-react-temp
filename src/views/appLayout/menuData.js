@@ -4,7 +4,7 @@
 // 如果后期菜单栏动态，二级菜单动态， 再修改
 // key: 菜单key; value: [url]
 const menuData = {
-    policyNews: ['/', '/policyNews',],
+    policyNews: ['/', '/policyNews', '/aseanPolicy'],
     techTrade: [],
     innovateService: [],
     cooperateSystem: ['/cooperateSystem'],

@@ -3,6 +3,8 @@ import Home from "../home/home";
 import PolicyNews from "../policyNews/policyNews";
 import CooperateSystem from "../cooperateSystem/cooperateSystem";
 
+import PolicyNewsRouter from '../../router/policyNewsRouter'
+
 import {
     HashRouter as Router,
     Switch,
@@ -23,11 +25,12 @@ const LayoutMain = function () {
     return (<div>
         <Router>
             <Switch>
-                <Redirect from="/" exact to="/policyNews" />
+                <Redirect from="/" exact to="/policyNews"/>
                 <Route path="/home"><Home/></Route>
                 <Route path="/policyNews"><PolicyNews/></Route>
                 <Route path="/cooperateSystem"><CooperateSystem/></Route>
-                <Redirect from="/*" to="/" />
+                <PolicyNewsRouter/>
+                <Redirect from="/*" to="/"/>
             </Switch>
         </Router>
     </div>)

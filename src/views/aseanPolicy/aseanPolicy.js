@@ -10,10 +10,9 @@ import {
 import {MapChart} from 'echarts/charts';
 import {CanvasRenderer} from 'echarts/renderers';
 
-
 import axios from 'axios'
 
-const CooperateSystem = function () {
+const AseanPolicy = function () {
     const ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
 
     echarts.use(
@@ -128,12 +127,12 @@ const CooperateSystem = function () {
 
 //--- operate ----------------------
 
-    return (<div>
-        CooperateSystem
-        <div id="main" style={{width: '500px', height: '500px'}}>
-
-        </div>
+    return (<div className='pagePadding'>
+        地图示例
+        <div id="main" style={{width: '800px', height: '800px'}}/>
     </div>)
 }
 
-export default CooperateSystem
+export default AseanPolicy
+
+
